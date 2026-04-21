@@ -539,24 +539,10 @@ footer{background:var(--gray-800);border-top:1px solid var(--gray-700);padding:3
         <div class="inq-row"><div class="inq-icon">✉️</div><div class="inq-val"><strong>help@motorbank.kr</strong></div></div>
       </div>
     </div>
-    <div class="inq-form">
-      <h4>견적 요청서</h4><p class="form-sub">필수 항목(*)을 입력하고 전송하세요.</p>
-      <div class="frow">
-        <div class="fg"><label>회사명 *</label><input type="text" placeholder="(주)예시테크" id="fComp"></div>
-        <div class="fg"><label>담당자 *</label><input type="text" placeholder="홍길동" id="fName"></div>
-      </div>
-      <div class="frow">
-        <div class="fg"><label>연락처 *</label><input type="text" placeholder="010-0000-0000" id="fPhone"></div>
-        <div class="fg"><label>이메일</label><input type="email" placeholder="example@company.com" id="fEmail"></div>
-      </div>
-      <div class="frow">
-        <div class="fg"><label>관심 모델</label><input type="text" placeholder="BAP-1703-0503 등" id="fModel"></div>
-        <div class="fg"><label>월 예상 수량</label><select id="fQty"><option>샘플 (1~5개)</option><option>소량 (6~50개)</option><option>중량 (51~200개)</option><option>대량 (200개+)</option></select></div>
-      </div>
-      <div class="fg"><label>추가 요구사항</label><textarea placeholder="적용 장비명, 재질 (FKM/PTFE), 납기, 방폭 인증서 필요 여부 등..." id="fNote"></textarea></div>
-      <button class="sub-btn" onclick="submitInq()">🚀 견적 요청 보내기</button>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:20px;padding:32px;background:rgba(255,255,255,0.08);border-radius:var(--r2);border:1px solid rgba(255,255,255,0.15);">
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">모델명·수량·용도를 입력하시면<br>담당자가 24시간 내 연락드립니다.</div>
+      <a href="https://motiongearon-chatbot.vercel.app/motor-inquiry" target="_blank" rel="noopener" class="sub-btn" style="text-decoration:none;width:fit-content;padding:14px 32px;font-size:15px;">🚀 견적 문의하기</a>
     </div>
-  </div>
 </div>
 
 </main>
@@ -738,18 +724,6 @@ function showTip(k){
   document.querySelectorAll('.ms-seg').forEach(s=>s.classList.remove('lit'));
   if(tip.classList.contains('show')){tip.classList.remove('show');openTip=null;}
   else{tip.classList.add('show');if(seg)seg.classList.add('lit');openTip=tip;}
-}
-  const params = new URLSearchParams({
-    source: 'micro-pump-catalog',
-    company: comp,
-    name: name,
-    phone: phone,
-    email: email,
-    model: model,
-    qty: qty,
-    note: note
-  });
-  window.open('https://motiongearon-chatbot.vercel.app/motor-inquiry?' + params.toString(), '_blank');
 }
 
 renderTable();
