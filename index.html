@@ -739,15 +739,6 @@ function showTip(k){
   if(tip.classList.contains('show')){tip.classList.remove('show');openTip=null;}
   else{tip.classList.add('show');if(seg)seg.classList.add('lit');openTip=tip;}
 }
-function submitInq(){
-  const comp  = document.getElementById('fComp').value.trim();
-  const name  = document.getElementById('fName').value.trim();
-  const phone = document.getElementById('fPhone').value.trim();
-  const email = document.getElementById('fEmail').value.trim();
-  const model = document.getElementById('fModel').value.trim();
-  const qty   = document.getElementById('fQty').value;
-  const note  = document.getElementById('fNote').value.trim();
-  if(!comp||!name||!phone){alert('회사명, 담당자명, 연락처는 필수입니다.');return;}
   const params = new URLSearchParams({
     source: 'micro-pump-catalog',
     company: comp,
