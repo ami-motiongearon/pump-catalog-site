@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MotorBank — 마이크로 펌프 솔루션 카탈로그</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#1a56db; --blue-dark:#1140a8; --blue-light:#e8f0fd; --blue-mid:#2563eb;
+  --teal:#0891b2; --green:#059669; --orange:#ea580c; --red:#dc2626; --amber:#d97706;
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
+  --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563; --gray-700:#374151;
+  --gray-800:#1f2937; --gray-900:#111827;
+  --white:#ffffff; --text:#111827; --text2:#374151; --text3:#6b7280;
+  --r:8px; --r2:6px; --r3:4px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,.08),0 2px 4px -1px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.08),0 4px 6px -2px rgba(0,0,0,.04);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:400;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.page-hero{background:linear-gradient(135deg,#1a3a8f 0%,#1a56db 50%,#0e7490 100%);padding:56px 0 52px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.06) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.04) 0%,transparent 40%)}
+.hero-inner{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:center;position:relative}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:14px}
+.hero-title{font-size:36px;font-weight:900;color:var(--white);line-height:1.2;margin-bottom:12px;letter-spacing:-.02em}
+.hero-title .ac{color:#7dd3fc}
+.hero-desc{font-size:14px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px;max-width:520px}
+.hero-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15)}
+.hstat-num{font-size:26px;font-weight:900;color:var(--white);line-height:1}
+.hstat-num sup{font-size:14px;font-weight:500;color:rgba(255,255,255,.7)}
+.hstat-lbl{font-size:11px;color:rgba(255,255,255,.55);margin-top:3px}
+.hero-panel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);backdrop-filter:blur(8px);padding:20px}
+.panel-label{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:14px}
+.case-list{display:flex;flex-direction:column;gap:8px}
+.case-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r3);padding:10px 14px;cursor:pointer;transition:all .18s}
+.case-item:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25)}
+.case-name{font-size:13px;font-weight:500;color:var(--white)}
+.case-tags{display:flex;gap:4px}
+.ctag{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:500;font-family:'DM Mono',monospace}
+.ctag-b{background:var(--blue-mid);color:var(--white)}
+.ctag-g{background:var(--green);color:var(--white)}
+.ctag-o{background:var(--orange);color:var(--white)}
+.ctag-t{background:var(--teal);color:var(--white)}
+.ctag-r{background:var(--red);color:var(--white)}
+
+/* CONTENT */
+.content-wrap{display:grid;grid-template-columns:260px 1fr;min-height:80vh;border-top:1px solid var(--gray-200)}
+.sidebar{border-right:1px solid var(--gray-200);padding:24px 0;position:sticky;top:108px;height:fit-content}
+.sb-section-title{font-size:11px;font-weight:700;color:var(--gray-400);letter-spacing:.08em;text-transform:uppercase;padding:8px 20px 6px}
+.sb-item{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;font-size:13px;color:var(--text2);cursor:pointer;border-left:3px solid transparent;transition:all .15s;gap:8px}
+.sb-item:hover{background:var(--gray-50);color:var(--blue)}
+.sb-item.active{background:var(--blue-light);color:var(--blue);border-left-color:var(--blue);font-weight:700}
+.sb-count{font-family:'DM Mono',monospace;font-size:11px;background:var(--gray-100);color:var(--gray-500);padding:1px 7px;border-radius:20px}
+.sb-item.active .sb-count{background:var(--blue);color:var(--white)}
+.sb-divider{height:1px;background:var(--gray-200);margin:8px 20px}
+.sb-filter-label{font-size:11px;font-weight:700;color:var(--gray-500);padding:8px 20px 4px;display:flex;align-items:center;justify-content:space-between}
+.sb-filter-label button{font-size:11px;color:var(--blue)}
+.sb-chk{display:flex;align-items:center;gap:8px;padding:5px 20px;font-size:12px;color:var(--text2);cursor:pointer}
+.sb-chk input{accent-color:var(--blue)}
+.main-panel{padding:28px 28px}
+
+/* SEC HEADER */
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--gray-100);gap:20px}
+.sec-overline{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+.sec-title-main{font-size:22px;font-weight:900;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+.sec-title-main .ac{color:var(--blue)}
+.sec-desc-sm{font-size:13px;color:var(--gray-500);margin-top:4px}
+.sec-right{display:flex;align-items:center;gap:8px}
+.btn-sm{font-size:12px;padding:7px 14px;border-radius:var(--r3);font-weight:500;transition:all .15s;display:flex;align-items:center;gap:5px;cursor:pointer}
+.btn-blue{background:var(--blue);color:var(--white);border:none}
+.btn-blue:hover{background:var(--blue-dark)}
+.btn-outline{background:var(--white);color:var(--text2);border:1px solid var(--gray-300)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* SEGMENT GRID */
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
+.seg-card{border:1.5px solid var(--gray-200);border-radius:var(--r);padding:18px 16px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden;background:var(--white)}
+.seg-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.seg-card:hover{border-color:var(--blue);box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.seg-card:hover::after{transform:scaleX(1)}
+.seg-card.active{border-color:var(--blue);background:var(--blue-light);box-shadow:var(--shadow-md)}
+.seg-card.active::after{transform:scaleX(1)}
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.sc-icon{width:40px;height:40px;background:var(--blue-light);border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.seg-card.active .sc-icon{background:rgba(26,86,219,.15)}
+.sc-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray-400);letter-spacing:.06em}
+.sc-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px}
+.seg-card.active .sc-name{color:var(--blue-dark)}
+.sc-desc{font-size:11px;color:var(--gray-500);line-height:1.55}
+.sc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.sc-tag{font-size:10px;padding:2px 7px;border-radius:20px;background:var(--gray-100);color:var(--gray-600);border:1px solid var(--gray-200);font-family:'DM Mono',monospace;letter-spacing:.03em}
+.seg-card.active .sc-tag{background:rgba(26,86,219,.08);color:var(--blue);border-color:rgba(26,86,219,.2)}
+
+/* FILTER + TABLE */
+.filter-row{display:flex;align-items:center;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.filter-lbl{font-size:12px;color:var(--gray-500);margin-right:4px}
+.ftag{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--gray-300);color:var(--gray-600);background:var(--white);cursor:pointer;transition:all .15s;font-family:'DM Mono',monospace;letter-spacing:.04em}
+.ftag:hover{border-color:var(--blue);color:var(--blue)}
+.ftag.on{background:var(--blue);border-color:var(--blue);color:var(--white);font-weight:500}
+.ptbl-wrap{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.ptbl{width:100%;border-collapse:collapse}
+.ptbl thead tr{background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+.ptbl th{font-size:11px;font-weight:700;color:var(--gray-500);letter-spacing:.06em;text-transform:uppercase;padding:10px 14px;text-align:left;white-space:nowrap}
+.ptbl th:first-child{padding-left:20px}
+.ptbl tbody tr{border-bottom:1px solid var(--gray-100);cursor:pointer;transition:background .12s}
+.ptbl tbody tr:last-child{border-bottom:none}
+.ptbl tbody tr:hover{background:var(--blue-light)}
+.ptbl tbody tr.expanded-row{background:#f0f7ff}
+.ptbl tbody tr.hidden{display:none}
+.ptbl td{padding:11px 14px;vertical-align:middle}
+.ptbl td:first-child{padding-left:20px}
+.td-mc{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--blue);display:flex;flex-direction:column;gap:1px}
+.td-orig{font-size:10px;color:var(--gray-400)}
+.td-pn{font-size:12px;font-weight:500;color:var(--text)}
+.td-s{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-700)}
+.td-s.g{color:var(--green);font-weight:500}
+.td-s.b{color:var(--blue);font-weight:500}
+.tbadge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
+.tb-bap{background:#dbeafe;color:#1d4ed8}
+.tb-dap{background:#d1fae5;color:#065f46}
+.tb-aap{background:#fef3c7;color:#92400e}
+.tb-bpp{background:#ede9fe;color:#5b21b6}
+.tb-blp{background:#cffafe;color:#155e75}
+.tb-bgp{background:#fce7f3;color:#9d174d}
+.pill{display:inline-block;font-size:10px;padding:1px 6px;border-radius:2px;margin:1px;font-family:'DM Mono',monospace}
+.px{background:#fee2e2;color:#b91c1c}
+.ph{background:#fef3c7;color:#92400e}
+.pi{background:#d1fae5;color:#065f46}
+.pb{background:#dbeafe;color:#1e40af}
+.exp-row td{padding:0!important;background:#f8fbff;border-bottom:2px solid var(--blue)!important}
+.exp-inner{padding:18px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.exp-sec h5{font-size:10px;font-weight:700;color:var(--gray-400);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-family:'DM Mono',monospace}
+.exp-val{font-size:12px;color:var(--text2);line-height:1.6}
+.selling-box{grid-column:1/-1;background:var(--blue-light);border-left:3px solid var(--blue);border-radius:0 var(--r2) var(--r2) 0;padding:10px 14px;font-size:12px;color:var(--text2);line-height:1.6}
+.selling-box strong{color:var(--blue)}
+
+/* SELECTOR */
+.sel-wrap{display:grid;grid-template-columns:220px 1fr;border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);min-height:500px}
+.sel-sb{background:var(--gray-50);border-right:1px solid var(--gray-200)}
+.sstep{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;cursor:pointer;transition:background .15s;border-left:3px solid transparent}
+.sstep:hover{background:var(--gray-100)}
+.sstep.active{background:var(--blue-light);border-left-color:var(--blue)}
+.sstep.done{border-left-color:var(--green)}
+.sstep.done .snum{background:var(--green);color:var(--white)}
+.snum{width:22px;height:22px;border-radius:50%;background:var(--gray-300);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;transition:background .15s}
+.sstep.active .snum{background:var(--blue)}
+.stitle{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px}
+.sstep:not(.active) .stitle{color:var(--gray-500)}
+.schosen{font-size:11px;color:var(--green);font-weight:500}
+.sel-div{height:1px;background:var(--gray-200)}
+.sel-main{background:var(--white);padding:28px 28px;overflow-y:auto}
+.sel-panel{display:none}
+.sel-panel.active{display:block;animation:panelIn .2s ease}
+@keyframes panelIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+.panel-h{font-size:18px;font-weight:900;color:var(--text);margin-bottom:4px}
+.panel-h .ac{color:var(--blue)}
+.panel-sub{font-size:12px;color:var(--gray-500);margin-bottom:22px}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cc{border:1.5px solid var(--gray-200);border-radius:var(--r2);padding:14px 16px;cursor:pointer;transition:all .15s;background:var(--white)}
+.cc:hover{border-color:var(--blue);background:var(--blue-light)}
+.cc.sel{border-color:var(--blue);background:var(--blue-light)}
+.cc.sel .cc-title{color:var(--blue)}
+.cc-icon{font-size:22px;margin-bottom:8px}
+.cc-title{font-size:13px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.cc-desc{font-size:11px;color:var(--gray-500);line-height:1.5}
+.range-group{margin-bottom:20px}
+.range-label-row{display:flex;justify-content:space-between;font-size:12px;color:var(--gray-600);margin-bottom:6px}
+.range-val{color:var(--blue);font-weight:700;font-family:'DM Mono',monospace}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.range-ticks{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray-400);margin-top:3px}
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.result-list{display:flex;flex-direction:column;gap:10px}
+.rc{border:1px solid var(--gray-200);border-radius:var(--r2);padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;cursor:pointer;transition:all .15s;background:var(--white)}
+.rc:hover{border-color:var(--blue);box-shadow:var(--shadow-md)}
+.rc.top{border-color:var(--green);border-left:3px solid var(--green);background:#f0fdf4}
+.rc-model{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--blue);margin-bottom:3px}
+.rc-name{font-size:12px;font-weight:700;margin-bottom:6px}
+.rc-specs{display:flex;gap:12px;flex-wrap:wrap}
+.rspec{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-500)}
+.rspec span{color:var(--text);font-weight:500}
+.score-num{font-size:26px;font-weight:900;color:var(--green);line-height:1;text-align:center}
+.score-lbl{font-size:10px;color:var(--gray-400);font-family:'DM Mono',monospace;letter-spacing:.06em;text-align:center}
+.top-badge{display:inline-block;font-size:10px;background:var(--green);color:var(--white);padding:2px 7px;border-radius:3px;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
+.panel-nav{display:flex;gap:8px;justify-content:flex-end;margin-top:20px}
+
+/* NAMING */
+.decode-wrap{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r);padding:28px}
+.decode-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.decode-title span{font-family:'DM Mono',monospace;font-size:12px;color:var(--gray-400)}
+.model-string{display:flex;align-items:stretch;gap:2px;margin-bottom:24px;flex-wrap:wrap}
+.ms-seg{display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.ms-val{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;padding:12px 16px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r3);min-width:56px;text-align:center;transition:all .18s;color:var(--text);line-height:1}
+.ms-seg:hover .ms-val,.ms-seg.lit .ms-val{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
+.ms-sep{font-family:'DM Mono',monospace;font-size:20px;color:var(--gray-300);padding:12px 3px;align-self:flex-start}
+.ms-lbl{font-family:'DM Mono',monospace;font-size:9px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;text-align:center}
+.ms-seg.lit .ms-lbl{color:var(--blue)}
+.decode-tip{background:var(--blue-light);border:1px solid rgba(26,86,219,.2);border-radius:var(--r2);padding:14px 16px;font-size:12px;color:var(--text2);line-height:1.7;display:none;margin-top:4px}
+.decode-tip.show{display:block}
+.decode-tip strong{color:var(--blue)}
+.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.rule-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r2);overflow:hidden}
+.rule-head{background:var(--blue);color:var(--white);padding:7px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.rule-row{display:grid;grid-template-columns:52px 1fr;border-bottom:1px solid var(--gray-100);font-size:11px}
+.rule-row:last-child{border-bottom:none}
+.rule-code{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--blue);padding:6px 12px;border-right:1px solid var(--gray-100)}
+.rule-desc{padding:6px 10px;color:var(--gray-600)}
+
+/* INQUIRY */
+.inq-wrap{background:linear-gradient(135deg,#1a3a8f 0%,#1a56db 100%);border-radius:var(--r);padding:40px;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.inq-title{font-size:26px;font-weight:900;color:var(--white);line-height:1.2;margin-bottom:12px}
+.inq-desc{font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:20px}
+.inq-contact{display:flex;flex-direction:column;gap:8px}
+.inq-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.inq-icon{width:30px;height:30px;background:rgba(255,255,255,.12);border-radius:var(--r3);display:flex;align-items:center;justify-content:center;font-size:14px}
+.inq-val{color:rgba(255,255,255,.9);font-weight:500}
+.inq-val strong{color:var(--white);font-size:14px}
+.inq-form{background:var(--white);border-radius:var(--r2);padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.inq-form h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
+.form-sub{font-size:11px;color:var(--gray-500);margin-bottom:8px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:11px;font-weight:700;color:var(--gray-500);letter-spacing:.04em}
+.fg input,.fg select,.fg textarea{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r3);padding:9px 11px;font-size:12px;font-family:inherit;color:var(--text);outline:none;width:100%;transition:border-color .15s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:var(--white)}
+.fg textarea{resize:vertical;min-height:70px}
+.sub-btn{width:100%;background:var(--blue);color:var(--white);padding:11px;border-radius:var(--r3);font-size:13px;font-weight:700;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;border:none}
+.sub-btn:hover{background:var(--blue-dark)}
+
+/* FOOTER */
+footer{background:var(--gray-800);border-top:1px solid var(--gray-700);padding:32px 0;margin-top:60px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-size:18px;font-weight:900;color:var(--gray-400)}
+.footer-copy{font-size:12px;color:var(--gray-500)}
+.footer-links{display:flex;gap:16px}
+.footer-links a{font-size:12px;color:var(--gray-500);transition:color .15s}
+.footer-links a:hover{color:var(--gray-300)}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--white);border:1px solid var(--green);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-lg);transform:translateY(60px);opacity:0;transition:all .3s ease;z-index:1000;pointer-events:none}
+.toast.show{transform:none;opacity:1}
+.toast-title{font-size:13px;font-weight:700;color:var(--green)}
+.toast-sub{font-size:11px;color:var(--gray-500)}
+
+@media(max-width:1024px){.content-wrap{grid-template-columns:1fr}.sidebar{display:none}.seg-grid{grid-template-columns:repeat(2,1fr)}.inq-wrap{grid-template-columns:1fr}.rules-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.container{padding:0 14px}.hero-inner{grid-template-columns:1fr}.hero-panel{display:none}.seg-grid,.choice-grid,.req-grid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}.exp-inner{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="page-hero"><div class="container"><div class="hero-inner">
+  <div>
+    <div class="hero-eyebrow">MICRO PUMP SOLUTION CATALOG</div>
+    <h1 class="hero-title">마이크로 펌프<br><span class="ac">솔루션 카탈로그</span></h1>
+    <p class="hero-desc">산업별 기체·액체 이송 요구사항에 맞는 펌프를 바로 선택하세요.<br>CEMS·의료기기·반도체·식품 설비 전용 80+ 모델 라인업.</p>
+    <div class="hero-stats">
+      <div><div class="hstat-num">80<sup>+</sup></div><div class="hstat-lbl">모델 라인업</div></div>
+      <div><div class="hstat-num">6</div><div class="hstat-lbl">적용 산업</div></div>
+      <div><div class="hstat-num">-98</div><div class="hstat-lbl">최저진공 KPa</div></div>
+      <div><div class="hstat-num">10K<sup>h</sup></div><div class="hstat-lbl">최대 수명</div></div>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="panel-label">산업별 추천 케이스</div>
+    <div class="case-list">
+      <div class="case-item" onclick="scrollToSeg('cems')"><span class="case-name">CEMS 굴뚝 가스 샘플링</span><div class="case-tags"><span class="ctag ctag-b">BLDC</span><span class="ctag ctag-o">고온</span></div></div>
+      <div class="case-item" onclick="scrollToSeg('med')"><span class="case-name">IVD 체외진단 분석기</span><div class="case-tags"><span class="ctag ctag-b">22g</span><span class="ctag ctag-t">저전압</span></div></div>
+      <div class="case-item" onclick="scrollToSeg('semi')"><span class="case-name">반도체 클린룸 진공</span><div class="case-tags"><span class="ctag ctag-b">오일리스</span><span class="ctag ctag-r">방폭</span></div></div>
+      <div class="case-item" onclick="scrollToSeg('food')"><span class="case-name">식품 충진 정량 이송</span><div class="case-tags"><span class="ctag ctag-g">식품등급</span><span class="ctag ctag-t">무맥동</span></div></div>
+      <div class="case-item" onclick="scrollToSeg('ind')"><span class="case-name">산업 자동화 대유량</span><div class="case-tags"><span class="ctag ctag-b">10Bar</span><span class="ctag ctag-o">AC 220V</span></div></div>
+    </div>
+  </div>
+</div></div></div>
+
+<div class="container" style="padding-top:32px;padding-bottom:60px;">
+<div class="content-wrap">
+
+<aside class="sidebar">
+  <div class="sb-section-title">제품 카테고리</div>
+  <div class="sb-item active" onclick="filterType('all',this)">🔵 전체 보기<span class="sb-count">22</span></div>
+  <div class="sb-item" onclick="filterType('BAP',this)">💙 BLDC 기체펌프<span class="sb-count">11</span></div>
+  <div class="sb-item" onclick="filterType('DAP',this)">💚 DC 기체펌프<span class="sb-count">2</span></div>
+  <div class="sb-item" onclick="filterType('AAP',this)">🟡 AC 기체펌프<span class="sb-count">3</span></div>
+  <div class="sb-item" onclick="filterType('BPP',this)">🟣 피스톤 펌프<span class="sb-count">2</span></div>
+  <div class="sb-item" onclick="filterType('BLP',this)">🔷 액체펌프<span class="sb-count">3</span></div>
+  <div class="sb-item" onclick="filterType('BGP',this)">🌸 기어펌프<span class="sb-count">1</span></div>
+  <div class="sb-divider"></div>
+  <div class="sb-filter-label">특수 사양<button onclick="clearFilters()">초기화</button></div>
+  <label class="sb-chk"><input type="checkbox" id="chk-ex" onchange="renderTable()"> 방폭형 (EX)</label>
+  <label class="sb-chk"><input type="checkbox" id="chk-ht" onchange="renderTable()"> 고온형 (HT)</label>
+  <label class="sb-chk"><input type="checkbox" id="chk-ip" onchange="renderTable()"> 방수 IP54+</label>
+  <label class="sb-chk"><input type="checkbox" id="chk-life" onchange="renderTable()"> 수명 10,000h+</label>
+  <label class="sb-chk"><input type="checkbox" id="chk-ptfe" onchange="renderTable()"> PTFE 재질</label>
+  <label class="sb-chk"><input type="checkbox" id="chk-small" onchange="renderTable()"> 30g 이하</label>
+  <div class="sb-divider"></div>
+  <div class="sb-section-title">빠른 이동</div>
+  <div class="sb-item" onclick="gotoId('seg-sec')">📌 산업별 가이드</div>
+  <div class="sb-item" onclick="gotoId('sel-sec')">🎯 모델 선택기</div>
+  <div class="sb-item" onclick="gotoId('name-sec')">📖 모델명 규칙</div>
+  <div class="sb-item" onclick="gotoId('inq-sec')">✉️ 견적 문의</div>
+</aside>
+
+<main class="main-panel">
+
+<!-- SEGMENTS -->
+<div id="seg-sec">
+  <div class="sec-header">
+    <div>
+      <div class="sec-overline">적용 산업별 가이드</div>
+      <div class="sec-title-main">6가지 산업 솔루션 <span class="ac">전체 보기</span></div>
+      
+    </div>
+    <div class="sec-right">
+      <div style="text-align:right"><div style="font-size:26px;font-weight:900;color:var(--blue);line-height:1">6</div><div style="font-size:11px;color:var(--gray-400)">적용 산업</div></div>
+      <div style="text-align:right;margin-left:20px"><div style="font-size:26px;font-weight:900;color:var(--blue);line-height:1">22</div><div style="font-size:11px;color:var(--gray-400)">구성 제품</div></div>
+    </div>
+  </div>
+  <div class="seg-grid">
+    <div class="seg-card" data-seg="cems" onclick="activateSeg(this,'cems')">
+      <div class="sc-top"><div class="sc-icon">🏭</div><div class="sc-num">01 / 06</div></div>
+      <div class="sc-name">CEMS / 환경 모니터링</div>
+      <div class="sc-desc">굴뚝 가스 샘플링, 대기질 분석기. 고온 개질가스 대응 + 방폭 인증.</div>
+      <div class="sc-tags"><span class="sc-tag">고온 150℃</span><span class="sc-tag">방폭 EX</span><span class="sc-tag">8,000h+</span><span class="sc-tag">FKM·PTFE</span></div>
+    </div>
+    <div class="seg-card" data-seg="med" onclick="activateSeg(this,'med')">
+      <div class="sc-top"><div class="sc-icon">🔬</div><div class="sc-num">02 / 06</div></div>
+      <div class="sc-name">의료기기 / IVD</div>
+      <div class="sc-desc">체외진단·혈액투석·포터블 의료기기. 22g 초소형, 3.5V 배터리 구동.</div>
+      <div class="sc-tags"><span class="sc-tag">22g 초소형</span><span class="sc-tag">3.5V 저전압</span><span class="sc-tag">무오염 EPDM</span></div>
+    </div>
+    <div class="seg-card" data-seg="semi" onclick="activateSeg(this,'semi')">
+      <div class="sc-top"><div class="sc-icon">💻</div><div class="sc-num">03 / 06</div></div>
+      <div class="sc-name">반도체 / 디스플레이</div>
+      <div class="sc-desc">클린룸 오일리스, 고진공 -98KPa, IP55 방폭. 다운타임 제로 설계.</div>
+      <div class="sc-tags"><span class="sc-tag">오일리스</span><span class="sc-tag">-98KPa</span><span class="sc-tag">IP55 방폭</span></div>
+    </div>
+    <div class="seg-card" data-seg="food" onclick="activateSeg(this,'food')">
+      <div class="sc-top"><div class="sc-icon">🥤</div><div class="sc-num">04 / 06</div></div>
+      <div class="sc-name">식품 / 음료 / 화학</div>
+      <div class="sc-desc">식품 접촉 등급 재질, 무맥동 정량 충진, 고양정 수직 이송.</div>
+      <div class="sc-tags"><span class="sc-tag">식품등급</span><span class="sc-tag">무맥동 기어</span><span class="sc-tag">50mWg</span></div>
+    </div>
+    <div class="seg-card" data-seg="lab" onclick="activateSeg(this,'lab')">
+      <div class="sc-top"><div class="sc-icon">⚗️</div><div class="sc-num">05 / 06</div></div>
+      <div class="sc-name">실험실 / 연구장비</div>
+      <div class="sc-desc">저진동·저소음, 커스터마이징, 재질·유량 주문 제작 대응.</div>
+      <div class="sc-tags"><span class="sc-tag">저진동</span><span class="sc-tag">주문 제작</span><span class="sc-tag">소량 가능</span></div>
+    </div>
+    <div class="seg-card" data-seg="ind" onclick="activateSeg(this,'ind')">
+      <div class="sc-top"><div class="sc-icon">⚙️</div><div class="sc-num">06 / 06</div></div>
+      <div class="sc-name">산업 자동화</div>
+      <div class="sc-desc">10Bar 피스톤, 대유량 50L+, AC 220/380V. 현장 즉시 적용.</div>
+      <div class="sc-tags"><span class="sc-tag">10Bar</span><span class="sc-tag">50L/min</span><span class="sc-tag">AC 380V</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT TABLE -->
+<div style="margin-top:40px">
+  <div class="sec-header">
+    <div><div class="sec-overline">전체 제품 카탈로그</div><div class="sec-title-main">모델 라인업 <span class="ac">비교표</span></div></div>
+    <div class="sec-right">
+      <button class="btn-sm btn-blue" onclick="gotoId('inq-sec')">견적 문의</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-lbl">필터:</span>
+    <button class="ftag on" data-f="all" onclick="filterProd('all',this)">전체</button>
+    <button class="ftag" data-f="BAP" onclick="filterProd('BAP',this)">BAP · BLDC 기체</button>
+    <button class="ftag" data-f="DAP" onclick="filterProd('DAP',this)">DAP · DC 기체</button>
+    <button class="ftag" data-f="AAP" onclick="filterProd('AAP',this)">AAP · AC 기체</button>
+    <button class="ftag" data-f="BPP" onclick="filterProd('BPP',this)">BPP·DPP · 피스톤</button>
+    <button class="ftag" data-f="BLP" onclick="filterProd('BLP',this)">BLP·DLP · 액체</button>
+    <button class="ftag" data-f="BGP" onclick="filterProd('BGP',this)">BGP · 기어</button>
+    <button class="ftag" data-f="EX" onclick="filterProd('EX',this)">방폭 EX</button>
+  </div>
+  <div class="ptbl-wrap">
+    <table class="ptbl"><thead><tr>
+      <th>MotorBank 모델</th><th>제품명</th><th>타입</th>
+      <th>최대 유량</th><th>진공 / 정압</th><th>전압</th><th>수명</th><th>특징</th>
+    </tr></thead><tbody id="ptbody"></tbody></table>
+  </div>
+</div>
+
+<!-- SELECTOR -->
+<div style="margin-top:48px" id="sel-sec">
+  <div class="sec-header">
+    <div><div class="sec-overline">인터랙티브 선택 도구</div><div class="sec-title-main">내 장비에 맞는 <span class="ac">펌프 찾기</span></div><div class="sec-desc-sm">조건 선택 → 매칭도 순 추천</div></div>
+  </div>
+  <div class="sel-wrap">
+    <div class="sel-sb">
+      <div class="sstep active" id="ss1" onclick="goPSel(1)"><div class="snum" id="sn1">1</div><div><div class="stitle">매체 종류</div><div class="schosen" id="sc1"></div></div></div>
+      <div class="sel-div"></div>
+      <div class="sstep" id="ss2" onclick="goPSel(2)"><div class="snum" id="sn2">2</div><div><div class="stitle">유량·진공압</div><div class="schosen" id="sc2"></div></div></div>
+      <div class="sel-div"></div>
+      <div class="sstep" id="ss3" onclick="goPSel(3)"><div class="snum" id="sn3">3</div><div><div class="stitle">특수 요건</div><div class="schosen" id="sc3"></div></div></div>
+      <div class="sel-div"></div>
+      <div class="sstep" id="ss4" onclick="goPSel(4)"><div class="snum" id="sn4">4</div><div><div class="stitle">추천 결과</div><div class="schosen" id="sc4"></div></div></div>
+    </div>
+    <div class="sel-main">
+      <div class="sel-panel active" id="sp1">
+        <div class="panel-h">어떤 매체를 이송하나요?</div>
+        <div class="panel-sub">매체 종류에 따라 최적 펌프 방식이 달라집니다.</div>
+        <div class="choice-grid">
+          <div class="cc" onclick="pickSel(this,1,'기체 (Air/Gas)')"><div class="cc-icon">💨</div><div class="cc-title">기체 (Air / Gas)</div><div class="cc-desc">공기, 질소, 개질가스, 샘플 기체. 다이어프램·베인·피스톤 방식.</div></div>
+          <div class="cc" onclick="pickSel(this,1,'액체 (Liquid)')"><div class="cc-icon">💧</div><div class="cc-title">액체 (Liquid)</div><div class="cc-desc">물, 시약, 혈액, 식품 액체. 다이어프램·기어 액체펌프.</div></div>
+          <div class="cc" onclick="pickSel(this,1,'기액 겸용')"><div class="cc-icon">🌀</div><div class="cc-title">기액 겸용</div><div class="cc-desc">기체·액체 모두 이송. FS 겸용 시리즈.</div></div>
+          <div class="cc" onclick="pickSel(this,1,'고압 기체 (3Bar+)')"><div class="cc-icon">🔩</div><div class="cc-title">고압 기체 (3Bar+)</div><div class="cc-desc">3Bar 이상 정압. 피스톤 계열 전용. 최대 10Bar.</div></div>
+        </div>
+        <div class="panel-nav"><button class="btn-sm btn-blue" onclick="goPSel(2)">다음 →</button></div>
+      </div>
+      <div class="sel-panel" id="sp2">
+        <div class="panel-h">유량 범위는?</div>
+        <div class="panel-sub">최대 유량과 필요 진공압을 설정하세요.</div>
+        <div class="range-group">
+          <div class="range-label-row"><span>최대 유량</span><span class="range-val" id="flowVal">5 L/min</span></div>
+          <input type="range" min="0" max="100" value="15" id="flowRange" oninput="updateFlow(this.value)">
+          <div class="range-ticks"><span>100ml</span><span>1L</span><span>10L</span><span>30L</span><span>60L+</span></div>
+        </div>
+        <div class="range-group" style="margin-top:20px">
+          <div class="range-label-row"><span>필요 진공압</span><span class="range-val" id="vacVal">-60 KPa</span></div>
+          <input type="range" min="0" max="100" value="50" id="vacRange" oninput="updateVac(this.value)">
+          <div class="range-ticks"><span>0</span><span>-30</span><span>-60</span><span>-85</span><span>-98</span></div>
+        </div>
+        <div class="panel-nav"><button class="btn-sm btn-outline" onclick="goPSel(1)">← 이전</button><button class="btn-sm btn-blue" onclick="goPSel(3)">다음 →</button></div>
+      </div>
+      <div class="sel-panel" id="sp3">
+        <div class="panel-h">특수 요건이 있나요?</div>
+        <div class="panel-sub">복수 선택 가능합니다.</div>
+        <div class="req-grid">
+          <div class="cc" data-req="ex" onclick="toggleReq(this)"><div class="cc-icon">⚡</div><div class="cc-title">방폭 인증 필요</div><div class="cc-desc">ATEX / 국내 방폭. EX ia / EX db 인증 모델.</div></div>
+          <div class="cc" data-req="ht" onclick="toggleReq(this)"><div class="cc-icon">🔥</div><div class="cc-title">고온 내열 (100℃+)</div><div class="cc-desc">150℃ 개질가스 이송 전용 설계.</div></div>
+          <div class="cc" data-req="ptfe" onclick="toggleReq(this)"><div class="cc-icon">🧪</div><div class="cc-title">PTFE 불소 재질</div><div class="cc-desc">강산·할로겐 등 부식성 극강 매체.</div></div>
+          <div class="cc" data-req="small" onclick="toggleReq(this)"><div class="cc-icon">🔍</div><div class="cc-title">초소형 (30g 이하)</div><div class="cc-desc">22g, 명함 크기. IVD·웨어러블.</div></div>
+          <div class="cc" data-req="life" onclick="toggleReq(this)"><div class="cc-icon">⏱</div><div class="cc-title">수명 10,000h 이상</div><div class="cc-desc">장기 무보수 연속 운전.</div></div>
+          <div class="cc" data-req="ip" onclick="toggleReq(this)"><div class="cc-icon">💧</div><div class="cc-title">방수 IP54 이상</div><div class="cc-desc">분진·수분 환경. 야외 설치.</div></div>
+        </div>
+        <div class="panel-nav"><button class="btn-sm btn-outline" onclick="goPSel(2)">← 이전</button><button class="btn-sm btn-blue" onclick="runSel()">추천 결과 보기 →</button></div>
+      </div>
+      <div class="sel-panel" id="sp4">
+        <div class="panel-h">추천 <span class="ac">모델</span></div>
+        <div class="panel-sub" id="res-sub">선택 조건에 맞는 추천 모델입니다.</div>
+        <div class="result-list" id="resList"></div>
+        <div class="panel-nav" style="margin-top:20px"><button class="btn-sm btn-outline" onclick="goPSel(3)">← 다시 선택</button><button class="btn-sm btn-blue" onclick="gotoId('inq-sec')">견적 문의하기</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAMING -->
+<div style="margin-top:48px" id="name-sec">
+  <div class="sec-header">
+    <div><div class="sec-overline">모델 번호 안내</div><div class="sec-title-main">모터뱅크 <span class="ac">모델 번호 체계</span></div><div class="sec-desc-sm">항목을 클릭하면 설명을 볼 수 있습니다</div></div>
+  </div>
+  <div class="decode-wrap">
+    <div class="decode-title">모델 번호 읽는 법 <span>— 예시: BAP-1703-0503</span></div>
+    <div class="model-string">
+      <div class="ms-seg" onclick="showTip('type')"><div class="ms-val">BAP</div><div class="ms-lbl">타입</div></div>
+      <div class="ms-sep">-</div>
+      <div class="ms-seg" onclick="showTip('size')"><div class="ms-val">17</div><div class="ms-lbl">크기(mm)</div></div>
+      <div class="ms-seg" onclick="showTip('flow')"><div class="ms-val">03</div><div class="ms-lbl">유량코드</div></div>
+      <div class="ms-sep">-</div>
+      <div class="ms-seg" onclick="showTip('volt')"><div class="ms-val">05</div><div class="ms-lbl">전압코드</div></div>
+      <div class="ms-seg" onclick="showTip('vac')"><div class="ms-val">03</div><div class="ms-lbl">진공코드</div></div>
+    </div>
+    <div class="decode-tip" id="tip-type"><strong>타입 코드:</strong> BAP = BLDC Air Pump | DAP = DC Brushed Air Pump | AAP = AC Air Pump | BPP/DPP = 피스톤 | BLP/DLP = 액체 | BGP = 기어 | SOV = 전자밸브</div>
+    <div class="decode-tip" id="tip-size"><strong>크기 코드:</strong> 13 = ~13mm 초소형 | 17 = ~17mm 소형 | 24 = ~24mm 소중형 | 54 = ~54mm 중형 | 00 = 시리즈 구분</div>
+    <div class="decode-tip" id="tip-flow"><strong>유량 코드:</strong> 01 = &lt;100ml | 02 = 100~300ml | <strong>03 = 300~600ml 대표(AD2DB506)</strong> | 04 = 600ml~1L | 05 = 1~2L | 06 = 2~5L | 07 = 5~10L | 08 = 10~20L | 09 = 20~35L | 10 = 35~60L | 11 = 60L+</div>
+    <div class="decode-tip" id="tip-volt"><strong>전압 코드:</strong> 01 = 1~4V | 03 = 3.5V | <strong>05 = 5V</strong> | 12 = 12V | 24 = 24V | AC = 220V AC | 3P = 380V 삼상</div>
+    <div class="decode-tip" id="tip-vac"><strong>진공압 코드:</strong> 01~08 / PP(정압전용). <strong>접미 코드:</strong> -EX 방폭 | -HT 고온 | -W 방수 | -D 더블헤드 | -P 멀티헤드 | -V 초고진공 | -F PTFE | -H 고압 | -L 10000h+ | -M 공심컵 | -S 표준</div>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-head">타입 코드</div>
+        <div class="rule-row"><div class="rule-code">BAP</div><div class="rule-desc">BLDC Air Pump</div></div>
+        <div class="rule-row"><div class="rule-code">DAP</div><div class="rule-desc">DC Brushed Air Pump</div></div>
+        <div class="rule-row"><div class="rule-code">AAP</div><div class="rule-desc">AC Air Pump</div></div>
+        <div class="rule-row"><div class="rule-code">BPP</div><div class="rule-desc">BLDC Piston Pump</div></div>
+        <div class="rule-row"><div class="rule-code">DPP</div><div class="rule-desc">DC Piston Pump</div></div>
+        <div class="rule-row"><div class="rule-code">BLP</div><div class="rule-desc">BLDC Liquid Pump</div></div>
+        <div class="rule-row"><div class="rule-code">DLP</div><div class="rule-desc">DC Liquid Pump</div></div>
+        <div class="rule-row"><div class="rule-code">BGP</div><div class="rule-desc">BLDC Gear Pump</div></div>
+        <div class="rule-row"><div class="rule-code">SOV</div><div class="rule-desc">Solenoid Valve</div></div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-head">유량 코드 (YY)</div>
+        <div class="rule-row"><div class="rule-code">01</div><div class="rule-desc">&lt; 100 ml/min</div></div>
+        <div class="rule-row"><div class="rule-code">02</div><div class="rule-desc">100 ~ 300 ml/min</div></div>
+        <div class="rule-row"><div class="rule-code">03</div><div class="rule-desc">300 ~ 600 ml 대표</div></div>
+        <div class="rule-row"><div class="rule-code">04</div><div class="rule-desc">600 ml ~ 1 L</div></div>
+        <div class="rule-row"><div class="rule-code">05</div><div class="rule-desc">1 ~ 2 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">06</div><div class="rule-desc">2 ~ 5 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">07</div><div class="rule-desc">5 ~ 10 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">08</div><div class="rule-desc">10 ~ 20 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">09</div><div class="rule-desc">20 ~ 35 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">10</div><div class="rule-desc">35 ~ 60 L/min</div></div>
+        <div class="rule-row"><div class="rule-code">11</div><div class="rule-desc">&gt; 60 L/min</div></div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-head">접미 코드 (suffix)</div>
+        <div class="rule-row"><div class="rule-code">-EX</div><div class="rule-desc">방폭형 (Explosion-proof)</div></div>
+        <div class="rule-row"><div class="rule-code">-HT</div><div class="rule-desc">고온형 (150℃)</div></div>
+        <div class="rule-row"><div class="rule-code">-W</div><div class="rule-desc">방수형 (IP54+)</div></div>
+        <div class="rule-row"><div class="rule-code">-D</div><div class="rule-desc">더블헤드</div></div>
+        <div class="rule-row"><div class="rule-code">-P</div><div class="rule-desc">멀티헤드 병렬</div></div>
+        <div class="rule-row"><div class="rule-code">-V</div><div class="rule-desc">초고진공 (≥-98KPa)</div></div>
+        <div class="rule-row"><div class="rule-code">-F</div><div class="rule-desc">PTFE 헤드</div></div>
+        <div class="rule-row"><div class="rule-code">-H</div><div class="rule-desc">고압형 (≥3Bar)</div></div>
+        <div class="rule-row"><div class="rule-code">-L</div><div class="rule-desc">장수명 (≥10,000h)</div></div>
+        <div class="rule-row"><div class="rule-code">-M</div><div class="rule-desc">공심컵 모터</div></div>
+        <div class="rule-row"><div class="rule-code">-S</div><div class="rule-desc">단두 표준형</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INQUIRY -->
+<div style="margin-top:48px" id="inq-sec">
+  <div class="sec-header">
+    <div><div class="sec-overline">INQUIRY</div><div class="sec-title-main">견적 <span class="ac">문의</span></div></div>
+  </div>
+  <div class="inq-wrap">
+    <div>
+      <div class="inq-title">24시간 내<br>담당자 연락</div>
+      <p class="inq-desc">모델 선택부터 납기·재질 맞춤 대응까지.<br>샘플 요청·단가 문의·기술 검토 모두 대응합니다.</p>
+      <div class="inq-contact">
+        <div class="inq-row"><div class="inq-icon">📞</div><div class="inq-val"><strong>02-855-6201</strong> (평일 09~18시)</div></div>
+        <div class="inq-row"><div class="inq-icon">✉️</div><div class="inq-val"><strong>help@motorbank.kr</strong></div></div>
+      </div>
+    </div>
+    <div class="inq-form">
+      <h4>견적 요청서</h4><p class="form-sub">필수 항목(*)을 입력하고 전송하세요.</p>
+      <div class="frow">
+        <div class="fg"><label>회사명 *</label><input type="text" placeholder="(주)예시테크" id="fComp"></div>
+        <div class="fg"><label>담당자 *</label><input type="text" placeholder="홍길동" id="fName"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>연락처 *</label><input type="text" placeholder="010-0000-0000" id="fPhone"></div>
+        <div class="fg"><label>이메일</label><input type="email" placeholder="example@company.com" id="fEmail"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>관심 모델</label><input type="text" placeholder="BAP-1703-0503 등" id="fModel"></div>
+        <div class="fg"><label>월 예상 수량</label><select id="fQty"><option>샘플 (1~5개)</option><option>소량 (6~50개)</option><option>중량 (51~200개)</option><option>대량 (200개+)</option></select></div>
+      </div>
+      <div class="fg"><label>추가 요구사항</label><textarea placeholder="적용 장비명, 재질 (FKM/PTFE), 납기, 방폭 인증서 필요 여부 등..." id="fNote"></textarea></div>
+      <button class="sub-btn" onclick="submitInq()">🚀 견적 요청 보내기</button>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+</div>
+
+<footer><div class="container"><div class="footer-inner">
+  <div class="footer-logo">motorbank</div>
+  <div class="footer-copy">© 2025 로봇마트 주식회사 (MotorBank). All rights reserved.</div>
+  <div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">사업자정보</a></div>
+</div></div></footer>
+
+<div class="toast" id="toast">
+  <div style="font-size:18px">✅</div>
+  <div><div class="toast-title">견적 요청 완료!</div><div class="toast-sub">담당자가 24시간 내 연락드립니다.</div></div>
+</div>
+
+<script>
+const PRODS = [
+  {model:"BAP-1701-0503",orig:"AD2KEEDB504",name:"초소형 BLDC 기체펌프 (<250ml)",type:"BAP",flow:"20~250 ml/min",vac:"-45 KPa",press:"44 KPa",volt:"5V DC",life:"8,000h",tags:["22g","초소형"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["cems","med","lab"],selling:"<strong>22g, 명함 크기.</strong> 이 스펙의 무브러시 기체펌프는 국내 공급 가능 모델. IVD·분석기기 설계 채용에 적합."},
+  {model:"BAP-1702-0503",orig:"AD2KEEDB505",name:"초소형 BLDC 기체펌프 (<400ml)",type:"BAP",flow:"50~400 ml/min",vac:"-45 KPa",press:"44 KPa",volt:"5V DC",life:"8,000h",tags:["22g","BLDC"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["med","lab","cems"],selling:"22g 동일 폼팩터에서 유량 업그레이드. 유량만 다른 동일 폼팩터 모델."},
+  {model:"BAP-1703-0503",orig:"AD2KEEDB506",name:"초소형 BLDC 기체펌프 (<500ml)",type:"BAP",flow:"50~500 ml/min",vac:"-45 KPa",press:"44 KPa",volt:"5V DC",life:"8,000h",tags:["22g","대표모델"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["med","cems","lab"],selling:"22g 무브러시 — CEMS·분석기기 설계에 자주 채용되는 모델."},
+  {model:"BAP-1701-0303",orig:"AD2KEEDC354",name:"초소형 저전압 BLDC (3.5V)",type:"BAP",flow:"20~250 ml/min",vac:"-45 KPa",press:"44 KPa",volt:"3.5V DC",life:"8,000h",tags:["3.5V","배터리"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["med"],selling:"<strong>3.5V 배터리 구동.</strong> 포터블·웨어러블 의료기기 전용. 국내 소수 공급 모델."},
+  {model:"BAP-1705-0503",orig:"AD1.5DB5",name:"무브러시 소형 기체펌프",type:"BAP",flow:"1,500 ml/min",vac:"-50 KPa",press:"—",volt:"5V DC",life:"8,000h",tags:["29g","IP20"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["cems","med","lab"],selling:"8,000h 무브러시 + -50KPa + 29g. CEMS 소형화 설계의 핵심 선택지."},
+  {model:"BAP-0006-1204-HT",orig:"AD5KVVDB12/24D",name:"고온형 BLDC 기체펌프 (150℃)",type:"BAP",flow:"3.1~4.2 L/min",vac:"-60 KPa",press:"1~1.5Bar",volt:"12/24V DC",life:"8,000h+",tags:["150℃","고온전용","IP54","HT"],ex:0,ht:1,ip:1,lk:0,ptfe:0,sm:0,seg:["cems"],selling:"<strong>150℃ 개질가스 이송 전용 설계.</strong> 굴뚝 CEMS 국내 소수 공급 모델."},
+  {model:"BAP-0006-2407-V",orig:"AD5DB24SSD",name:"초고진공 4헤드 기체펌프",type:"BAP",flow:"5,000 ml/min",vac:"-98 KPa",press:"—",volt:"24V DC",life:"10,000h+",tags:["-98KPa","10000h"],ex:0,ht:0,ip:0,lk:1,ptfe:0,sm:0,seg:["semi","cems"],selling:"<strong>-98KPa 극한 진공.</strong> 다이어프램 방식 최상위 진공 사양. 4헤드 직렬."},
+  {model:"BAP-0008-1206-E",orig:"AD8KEEDB12/24",name:"무브러시 대형 기체펌프",type:"BAP",flow:"11 L/min",vac:"-90 KPa",press:"3.95Bar",volt:"12/24V DC",life:"8,000h",tags:["양방향","3.95Bar"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["cems","ind","semi"],selling:"<strong>진공 -90KPa + 정압 3.95Bar 동시 대응.</strong> 단일 장비 진공·가압 전환."},
+  {model:"BAP-0008-2406-EX",orig:"AD8KEEDBx24",name:"방폭형 대형 기체펌프 IP55",type:"BAP",flow:"11 L/min",vac:"-90 KPa",press:"3.95Bar",volt:"24V DC",life:"8,000h",tags:["IP55","방폭","EX"],ex:1,ht:0,ip:1,lk:0,ptfe:0,sm:0,seg:["semi","ind","cems"],selling:"<strong>IP55 + 방폭 인증.</strong> 반도체·화학공장 설치 가능 높은 보호등급."},
+  {model:"BAP-0009-1206-P",orig:"AD30KEEDBW12/24",name:"무브러시 대용량 기체펌프 30L",type:"BAP",flow:"30 L/min",vac:"-85 KPa",press:"1.4Bar",volt:"12/24V DC",life:"6,000h",tags:["30L/min","대용량"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["ind","cems"],selling:"30L/min 무브러시. 진공흡착·대유량 기체이송 라인 즉시 교체."},
+  {model:"BAP-0009-2406-EX",orig:"AD30KEEDBX24.1",name:"방폭 대용량 기체펌프 34L",type:"BAP",flow:"34 L/min",vac:"-87 KPa",press:"—",volt:"24V DC",life:"6,000h",tags:["방폭","EX","34L"],ex:1,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["ind","cems"],selling:"방폭 인증 보유. 방폭 구역 대용량 펌프 — 국내 재고 공급."},
+  {model:"DAP-1302-0103",orig:"AD1DC3.3-B",name:"소형 DC 기체펌프",type:"DAP",flow:"520 ml/min",vac:"-43 KPa",press:"53 KPa",volt:"1~4V DC",life:"6,000h",tags:["소형","경제형"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["med","lab"],selling:"저전압 소형 기체펌프. 경제형 CEMS·실험실 기본 구성."},
+  {model:"DAP-1302-0103-EX",orig:"AD1DC3EX-B",name:"방폭형 소형 DC 기체펌프",type:"DAP",flow:"520 ml/min",vac:"-43 KPa",press:"53 KPa",volt:"1~4V DC",life:"6,000h",tags:["방폭","EX"],ex:1,ht:0,ip:0,lk:0,ptfe:0,sm:1,seg:["cems"],selling:"방폭 인증 보유. 소형 방폭 기체펌프."},
+  {model:"AAP-0010-AC06",orig:"AD40KEEAC2P.1",name:"AC 대형 진공펌프 43L",type:"AAP",flow:"43 L/min",vac:"-89 KPa",press:"—",volt:"220V AC",life:"8,500h",tags:["AC220V","43L"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["ind"],selling:"DC 전원 없는 설비에 바로 적용. 43L/min 대유량 AC 다이어프램 진공펌프."},
+  {model:"AAP-0010-AC07-F",orig:"AD40KTFP8AC2S.1",name:"PTFE헤드 AC 고진공 펌프",type:"AAP",flow:"30 L/min",vac:"-98 KPa",press:"—",volt:"220V AC",life:"8,500h",tags:["PTFE","AC","-98KPa"],ex:0,ht:0,ip:0,lk:0,ptfe:1,sm:0,seg:["semi","ind"],selling:"PTFE 헤드로 불화학 약품 내성 강화. 반도체 식각가스 이송."},
+  {model:"AAP-0009-3P05-EX",orig:"AD40KEEACEX",name:"방폭 AC 380V 진공펌프",type:"AAP",flow:"27 L/min",vac:"-85 KPa",press:"—",volt:"380V AC",life:"8,500h",tags:["380V","방폭","EX"],ex:1,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["ind"],selling:"방폭 인증 보유. 산업 현장 380V 삼상 방폭 진공."},
+  {model:"DPP-0008-1206-C",orig:"ARP12DC12/24",name:"대형 피스톤 기체펌프 10Bar",type:"DPP",flow:"15 L/min",vac:"-85 KPa",press:"10 Bar",volt:"12/24V DC",life:"6,000h",tags:["10Bar","피스톤"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["ind","semi"],selling:"<strong>최대 10Bar.</strong> 다이어프램 불가 압력. 피스톤 계열 공급 모델."},
+  {model:"BPP-0009-2406-CP",orig:"ARP12DB24P",name:"무브러시 피스톤 2헤드 10Bar",type:"BPP",flow:"35 L/min",vac:"-85 KPa",press:"8~10 Bar",volt:"24V DC",life:"10,000h",tags:["10Bar","무브러시","10000h"],ex:0,ht:0,ip:0,lk:1,ptfe:0,sm:0,seg:["ind"],selling:"10Bar 고압 + 무브러시 10,000h. 산업 자동화 핵심 고압 공급."},
+  {model:"BLP-0002-1203-S",orig:"FS260KEEDB12/24",name:"무브러시 소형 다이어프램 액체펌프",type:"BLP",flow:"280 ml/min",vac:"4 mWg",press:"60 mWg",volt:"12/24V DC",life:"6,000h+",tags:["내화학성","IP40"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["food","med","lab"],selling:"FKM/PTFE 정제 소재 + 6,000h 무브러시. 내화학성 액체 장기 이송."},
+  {model:"BLP-0005-2404-H",orig:"FS2000KEEDBW24",name:"고압 무브러시 액체펌프 50mWg",type:"BLP",flow:"1,600 ml/min",vac:"1.5 mWg",press:"50 mWg",volt:"24V DC",life:"6,000h+",tags:["50mWg","고압"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["food","ind"],selling:"<strong>50mWg 고압 — 5m 수직 이송 가능.</strong> 다층 설비 이송 최적."},
+  {model:"BLP-0001-1203-S",orig:"FS210KEEBL12/24",name:"기액겸용 무브러시 액체펌프",type:"BLP",flow:"30 ml/min",vac:"0.4 mWg",press:"4 mWg",volt:"12/24V DC",life:"6,000h",tags:["기액겸용","IP40"],ex:0,ht:0,ip:0,lk:0,ptfe:0,sm:0,seg:["med","food","lab"],selling:"<strong>기체·액체 모두 이송.</strong> 단일 펌프 두 역할. 장비 내 부품 수 절감."},
+  {model:"BGP-0001-2410-G",orig:"FSG203D",name:"마이크로 기어펌프 (무맥동)",type:"BGP",flow:"0.32ml/rev × 4500rpm",vac:"—",press:"10 Bar",volt:"24V DC",life:"초장수명",tags:["무맥동","10Bar","역방향","기어"],ex:0,ht:0,ip:0,lk:1,ptfe:0,sm:0,seg:["med","food","semi"],selling:"<strong>무맥동 + 역방향 + 10Bar + 0~1500cps.</strong> 혈액투석·잉크젯·냉각 전용. 이 조합의 국내 공급 가능 모델."},
+];
+
+let curF='all', curSeg=null, expRow=null;
+
+function renderTable(){
+  const tb=document.getElementById('ptbody');
+  const ex=document.getElementById('chk-ex')?.checked;
+  const ht=document.getElementById('chk-ht')?.checked;
+  const ip=document.getElementById('chk-ip')?.checked;
+  const lk=document.getElementById('chk-life')?.checked;
+  const pt=document.getElementById('chk-ptfe')?.checked;
+  const sm=document.getElementById('chk-small')?.checked;
+  tb.innerHTML='';
+  PRODS.forEach((p,i)=>{
+    let show=true;
+    if(curF==='EX'){show=p.ex}
+    else if(curF!=='all'){show=p.type.startsWith(curF)||p.type===curF}
+    if(curSeg&&!p.seg.includes(curSeg))show=false;
+    // 특수사양 체크: OR 조건 — 하나라도 해당되면 표시 (AND로 하면 너무 많이 숨겨짐)
+    const anySpec=ex||ht||ip||lk||pt||sm;
+    if(anySpec){
+      const match=(ex&&p.ex)||(ht&&p.ht)||(ip&&p.ip)||(lk&&p.lk)||(pt&&p.ptfe)||(sm&&p.sm);
+      if(!match)show=false;
+    }
+    const bc={BAP:'tb-bap',DAP:'tb-dap',AAP:'tb-aap',BPP:'tb-bpp',DPP:'tb-bpp',BLP:'tb-blp',BGP:'tb-bgp'}[p.type]||'tb-bgp';
+    const pills=p.tags.map(t=>`<span class="pill ${t.includes('방폭')||t.includes('EX')?'px':t.includes('℃')||t.includes('HT')?'ph':t.includes('IP')?'pi':'pb'}">${t}</span>`).join('');
+    const tr=document.createElement('tr');
+    tr.className=show?'':'hidden'; tr.dataset.i=i;
+    tr.onclick=()=>toggleExp(i,tr);
+    tr.innerHTML=`<td><div class="td-mc">${p.model}</div></td><td><div class="td-pn">${p.name}</div></td><td><span class="tbadge ${bc}">${p.type}</span></td><td><span class="td-s g">${p.flow}</span></td><td><span class="td-s b">${p.vac}</span> / <span class="td-s">${p.press}</span></td><td><span class="td-s">${p.volt}</span></td><td><span class="td-s">${p.life}</span></td><td>${pills}</td>`;
+    tb.appendChild(tr);
+    const ex2=document.createElement('tr');
+    ex2.className='exp-row'; ex2.id='ex'+i; ex2.style.display='none';
+    ex2.innerHTML=`<td colspan="8"><div class="exp-inner"><div class="exp-sec"><h5>유량</h5><div class="exp-val">${p.flow}</div></div><div class="exp-sec"><h5>진공/정압</h5><div class="exp-val">${p.vac} / ${p.press}</div></div><div class="exp-sec"><h5>수명 / IP</h5><div class="exp-val">${p.life}</div></div><div class="exp-sec"><h5>적용 산업</h5><div class="exp-val">${p.seg.join(' · ')}</div></div><div class="selling-box">${p.selling}</div></div></td>`;
+    tb.appendChild(ex2);
+  });
+}
+function toggleExp(i,tr){
+  const e=document.getElementById('ex'+i);
+  if(expRow&&expRow!==e){expRow.style.display='none'; document.querySelectorAll('.expanded-row').forEach(r=>r.classList.remove('expanded-row'));}
+  if(e.style.display==='none'){e.style.display='table-row';tr.classList.add('expanded-row');expRow=e;}
+  else{e.style.display='none';tr.classList.remove('expanded-row');expRow=null;}
+}
+function filterProd(f,btn){
+  curF=f;
+  document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); renderTable();
+}
+function filterType(f,el){
+  curF=f==='all'?'all':f;
+  document.querySelectorAll('.sb-item').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.ftag').forEach(b=>b.classList.toggle('on',b.dataset.f===(f==='all'?'all':f)));
+  renderTable();
+}
+function clearFilters(){
+  ['chk-ex','chk-ht','chk-ip','chk-life','chk-ptfe','chk-small'].forEach(id=>{const e=document.getElementById(id);if(e)e.checked=false;});
+  renderTable();
+}
+function activateSeg(card,seg){
+  document.querySelectorAll('.seg-card').forEach(c=>c.classList.remove('active'));
+  card.classList.add('active');
+  if(curSeg===seg){curSeg=null;card.classList.remove('active');}else{curSeg=seg;}
+  renderTable();
+}
+function scrollToSeg(seg){
+  document.getElementById('seg-sec').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{const c=document.querySelector(`[data-seg="${seg}"]`);if(c)activateSeg(c,seg);},400);
+}
+function gotoId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+let sst={media:null,flow:5,vac:-60,reqs:[]};
+function goPSel(n){
+  [1,2,3,4].forEach(i=>{
+    document.getElementById('sp'+i).classList.toggle('active',i===n);
+    document.getElementById('ss'+i).classList.toggle('active',i===n);
+  });
+}
+function pickSel(card,step,val){
+  card.parentElement.querySelectorAll('.cc').forEach(c=>c.classList.remove('sel'));
+  card.classList.add('sel');
+  if(step===1){
+    sst.media=val;
+    document.getElementById('sc1').textContent=val;
+    document.getElementById('sn1').textContent='✓';
+    document.getElementById('ss1').classList.add('done');
+    setTimeout(()=>goPSel(2),300);
+  }
+}
+function updateFlow(v){
+  const vals=[0.1,0.3,0.5,1,2,3,5,8,10,15,20,30,40,50,60,80,100];
+  const idx=Math.round(v/100*(vals.length-1));
+  sst.flow=vals[idx];
+  const t=sst.flow>=1?`${sst.flow} L/min`:`${Math.round(sst.flow*1000)} ml/min`;
+  document.getElementById('flowVal').textContent=t;
+  document.getElementById('sc2').textContent=t;
+}
+function updateVac(v){
+  sst.vac=Math.round(-v*0.98);
+  document.getElementById('vacVal').textContent=`${sst.vac} KPa`;
+}
+function toggleReq(card){
+  card.classList.toggle('sel');
+  const r=card.dataset.req;
+  if(card.classList.contains('sel')){if(!sst.reqs.includes(r))sst.reqs.push(r);}
+  else{sst.reqs=sst.reqs.filter(x=>x!==r);}
+  document.getElementById('sc3').textContent=sst.reqs.length>0?`${sst.reqs.length}개 선택`:'';
+}
+function runSel(){
+  const scored=PRODS.map(p=>{
+    let s=50;
+    if(sst.media==='기체 (Air/Gas)'&&(p.type==='BAP'||p.type==='DAP'||p.type==='AAP'))s+=25;
+    if(sst.media==='액체 (Liquid)'&&(p.type==='BLP'||p.type==='DLP'))s+=25;
+    if(sst.media==='기액 겸용'&&p.type==='BLP')s+=20;
+    if(sst.media==='고압 기체 (3Bar+)'&&(p.type==='BPP'||p.type==='DPP'))s+=30;
+    if(sst.reqs.includes('ex')&&p.ex)s+=20; if(sst.reqs.includes('ht')&&p.ht)s+=20;
+    if(sst.reqs.includes('ptfe')&&p.ptfe)s+=15; if(sst.reqs.includes('small')&&p.sm)s+=15;
+    if(sst.reqs.includes('life')&&p.lk)s+=15; if(sst.reqs.includes('ip')&&p.ip)s+=15;
+    if(sst.reqs.includes('ex')&&!p.ex)s-=20;
+    return{...p,score:Math.min(99,Math.max(20,s))};
+  }).sort((a,b)=>b.score-a.score).slice(0,5);
+  document.getElementById('resList').innerHTML=scored.map((p,i)=>`
+    <div class="rc ${i===0?'top':''}">
+      <div>${i===0?'<div class="top-badge">★ 최우선 추천</div>':''}<div class="rc-model">${p.model}</div><div class="rc-name">${p.name}</div><div class="rc-specs"><span class="rspec">유량 <span>${p.flow}</span></span><span class="rspec">진공 <span>${p.vac}</span></span><span class="rspec">전압 <span>${p.volt}</span></span><span class="rspec">수명 <span>${p.life}</span></span></div></div>
+      <div><div class="score-num">${p.score}%</div><div class="score-lbl">매칭도</div></div>
+    </div>`).join('');
+  document.getElementById('res-sub').textContent=`${scored.length}개 모델을 매칭도 순으로 추천합니다.`;
+  document.getElementById('sc4').textContent=`${scored.length}개 결과`;
+  ['sn2','sn3'].forEach(id=>{document.getElementById(id).textContent='✓';});
+  ['ss2','ss3'].forEach(id=>{document.getElementById(id).classList.add('done');});
+  goPSel(4);
+}
+let openTip=null;
+function showTip(k){
+  const tip=document.getElementById('tip-'+k);
+  const seg=document.querySelector(`[onclick="showTip('${k}')"]`);
+  if(openTip&&openTip!==tip)openTip.classList.remove('show');
+  document.querySelectorAll('.ms-seg').forEach(s=>s.classList.remove('lit'));
+  if(tip.classList.contains('show')){tip.classList.remove('show');openTip=null;}
+  else{tip.classList.add('show');if(seg)seg.classList.add('lit');openTip=tip;}
+}
+function submitInq(){
+  if(!document.getElementById('fComp').value.trim()||!document.getElementById('fName').value.trim()||!document.getElementById('fPhone').value.trim()){alert('회사명, 담당자명, 연락처는 필수입니다.');return;}
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+renderTable();
+updateFlow(15);
+updateVac(50);
+</script>
+</body>
+</html>
